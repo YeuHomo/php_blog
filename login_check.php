@@ -46,11 +46,11 @@ if($_SESSION['code'] != strtoupper($code)){
 include 'mysql/mysql_conn.php';
 
 //sql查找语句
-$sql = "SELECT password FROM user WHERE username='$username'";
+$sql = "SELECT password FROM blog_user WHERE username='$username'";
 
 
 //执行sql语句
-$result = mysqli_query($link,$sql);
+$result = @mysqli_query($link,$sql);
 
 $A = $result->fetch_row();
 //如果查询不到结果的话，就返回
@@ -71,6 +71,7 @@ if(md5($password) != $A[0]){
     return;
 }
 
+$_SESSION['username'] = $username;
 //登录成功后跳转到首页
-header('location:index.html');
+header('location:index.php');
 

@@ -1,3 +1,12 @@
+<?php
+
+//判断session中的username是否为空
+include "username_check_session.php";
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,9 +28,9 @@
 		</div>
 		<div class="top_right">
 			<ul>
-				<li>管理员：admin</li>
-				<li><a href="pass.html" target="main">修改密码</a></li>
-				<li><a href="#">退出</a></li>
+				<li>管理员：<?php echo $_SESSION['username']?></li>
+				<li><a href="pass.php" target="main">修改密码</a></li>
+				<li><a href="logout.php">退出</a></li>
 			</ul>
 		</div>
 	</div>
@@ -33,10 +42,10 @@
             <li>
             	<h3><i class="fa fa-fw fa-clipboard"></i>常用操作</h3>
                 <ul class="sub_menu">
-                    <li><a href="add.html" target="main"><i class="fa fa-fw fa-plus-square"></i>添加页</a></li>
-                    <li><a href="list.html" target="main"><i class="fa fa-fw fa-list-ul"></i>列表页</a></li>
-                    <li><a href="tab.html" target="main"><i class="fa fa-fw fa-list-alt"></i>tab页</a></li>
-                    <li><a href="img.html" target="main"><i class="fa fa-fw fa-image"></i>图片列表</a></li>
+                    <li><a href="add.php" target="main"><i class="fa fa-fw fa-plus-square"></i>添加分类</a></li>
+                    <li><a href="cate_list.php" target="main"><i class="fa fa-fw fa-list-ul"></i>分类列表</a></li>
+                    <li><a href="tab.html" target="main"><i class="fa fa-fw fa-list-alt"></i>添加文章</a></li>
+                    <li><a href="img.html" target="main"><i class="fa fa-fw fa-image"></i>文章列表</a></li>
                 </ul>
             </li>
             <li>
@@ -61,7 +70,7 @@
 
 	<!--主体部分 开始-->
 	<div class="main_box">
-		<iframe src="info.html" frameborder="0" width="100%" height="100%" name="main"></iframe> 
+		<iframe src="info.php" frameborder="0" width="100%" height="100%" name="main"></iframe>
 	</div>
 	<!--主体部分 结束-->
 
