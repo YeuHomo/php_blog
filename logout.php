@@ -6,6 +6,7 @@
  * Time: 10:28
  */
 
+
 //不能没有登录用户直接退出
 //引入session
 include 'username_check_session.php';

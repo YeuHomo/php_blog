@@ -15,6 +15,7 @@ include "username_check_session.php";
 	<link rel="stylesheet" href="style/font/css/font-awesome.min.css">
 	<script type="text/javascript" src="style/js/jquery.js"></script>
     <script type="text/javascript" src="style/js/ch-ui.admin.js"></script>
+    <script src="layer/layer.js"></script>
 </head>
 <body>
 	<!--头部 开始-->
@@ -30,7 +31,7 @@ include "username_check_session.php";
 			<ul>
 				<li>管理员：<?php echo $_SESSION['username']?></li>
 				<li><a href="pass.php" target="main">修改密码</a></li>
-				<li><a href="logout.php">退出</a></li>
+				<li><a onclick="_logout()">退出</a></li>
 			</ul>
 		</div>
 	</div>
@@ -42,10 +43,10 @@ include "username_check_session.php";
             <li>
             	<h3><i class="fa fa-fw fa-clipboard"></i>常用操作</h3>
                 <ul class="sub_menu">
-                    <li><a href="add.php" target="main"><i class="fa fa-fw fa-plus-square"></i>添加分类</a></li>
-                    <li><a href="cate_list.php" target="main"><i class="fa fa-fw fa-list-ul"></i>分类列表</a></li>
-                    <li><a href="tab.html" target="main"><i class="fa fa-fw fa-list-alt"></i>添加文章</a></li>
-                    <li><a href="img.html" target="main"><i class="fa fa-fw fa-image"></i>文章列表</a></li>
+                    <li><a href="cate_add_page.php" target="main"><i class="fa fa-fw fa-plus-square"></i>添加分类</a></li>
+                    <li><a href="cate_list_page.php" target="main"><i class="fa fa-fw fa-list-ul"></i>分类列表</a></li>
+                    <li><a href="article_add_page.php" target="main"><i class="fa fa-fw fa-list-alt"></i>添加文章</a></li>
+                    <li><a href="article_list_page.php" target="main"><i class="fa fa-fw fa-image"></i>文章列表</a></li>
                 </ul>
             </li>
             <li>
@@ -79,5 +80,20 @@ include "username_check_session.php";
 		CopyRight © 2015. Powered By <a href="http://www.houdunwang.com">http://www.houdunwang.com</a>.
 	</div>
 	<!--底部 结束-->
+
+
+    <script>
+        function _logout() {
+            layer.msg('你确定要退出吗？', {
+                time: 0 //不自动关闭
+                ,btn: ['是的', '不要']
+                ,yes: function(){
+                   location.href='logout.php';
+                }
+            });
+        }
+        
+        
+    </script>
 </body>
 </html>

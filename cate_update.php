@@ -1,12 +1,13 @@
 <?php
 
 header('Content-type:text/json');
-if($_GET){
+if($_POST){
 
-    $id = $_GET['id']?strip_tags($_GET['id']):'';
-    $parent = $_GET['cate_parent']?strip_tags($_GET['cate_parent']):'';
-    $name = $_GET['cate_name']?strip_tags($_GET['cate_name']):'';
-    $title = $_GET['cate_title']?strip_tags($_GET['cate_title']):'';
+//    print_r($_POST);die;
+    $id = $_POST['id']?strip_tags($_POST['id']):'';
+    $parent = $_POST['cate_parent']?strip_tags($_POST['cate_parent']):'';
+    $name = $_POST['cate_name']?strip_tags($_POST['cate_name']):'';
+    $title = $_POST['cate_title']?strip_tags($_POST['cate_title']):'';
 
     if($id == ''){
         $data = array('status' =>6,'message' =>'无法获取id');
@@ -37,7 +38,6 @@ if($_GET){
         die(json_encode($data));
     }
 
-
     include 'mysql/mysql_conn.php';
     $sql = "UPDATE blog_category SET cate_name='{$name}',cate_title='{$title}',cate_pid='{$parent}' WHERE id='{$id}'";
     $result = @mysqli_query($link,$sql);
@@ -52,5 +52,3 @@ if($_GET){
     }
 
 }
-
-

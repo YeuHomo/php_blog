@@ -1,4 +1,4 @@
-/* 
+/*
 * @Author: ChenHua <276004561@qq.com>
 * @Date:   2015-09-14 21:11:36
 * @Last Modified by:   ChenHua
@@ -6,11 +6,11 @@
 */
 
 //静止使用框架引用页面
-// if(top != self){  
-//     top.location.href=self.location.href;
-// }
+if(top != self){
+    top.location.href=self.location.href;
+}
 
-//左侧点击事件
+// 左侧点击事件
 $(function(){
 	$('.sub_menu').find('li').click(function(){
 		$(this).parents('.menu_box').find('li').removeClass('on');
@@ -36,12 +36,12 @@ $(function(){
 	});
 });
 
-//列表页点击全选按钮
+列表页点击全选按钮
 $(function(){
 	$('.list_tab').find('tr').find('[type=checkbox]').click(function(){
 		$('.list_tab').find('td').find('[type=checkbox]').prop('checked',$(this).prop('checked'));
 	});
-})
+});
 
 //删除图片列表
 function del_pic(obj){
